@@ -210,23 +210,5 @@ The raw file needed real repair before any analysis. Each rule below was inferre
 - **Dates:** all dates are month/day/year (the first part never exceeds 12 and the second often does), so none are ambiguous.
 - **Limitations:** the scale repair is an inference, not vendor documentation. The data covers 2020–2021 and the US only, has no cost, discount, or end-customer data, and its 2020 vs 2021 coverage differs (see Key Findings).
 
-### How to Run This Project
 
-1. **Clone the repo**
-   ```
-   git clone https://github.com/<your-username>/adidas-us-sales-analysis.git
-   cd adidas-us-sales-analysis
-   ```
-2. **Load the data into BigQuery:** create a dataset, then a table named `adidas_sales` from `data/adidas_sales_clean_v2.csv`. Set `invoice_date` to `DATE`, `price_per_unit` and `operating_profit` and `total_sales` to numeric, `retailer_id` and `units_sold` to integer, and skip 1 header row.
-3. **Run the analysis:** in each file in `sql/`, replace `your_project.your_dataset` with your own project and dataset, then run the queries one at a time.
-4. **(Optional) Rebuild the cleaned file from a raw file you have:**
-   ```
-   python scripts/clean_raw_data.py --input data_sales.csv --output adidas_sales_clean_v2.csv
-   ```
-5. **Dashboard:** connect Looker Studio to the BigQuery table and recreate the KPI cards with the definitions in [Data Model](#data-model).
 
-### Author & Contact
-
-[Your name]
-Aspiring Data Analyst
-🔗 [GitHub](https://github.com/<your-username>) · [LinkedIn](https://www.linkedin.com/in/<your-handle>)
