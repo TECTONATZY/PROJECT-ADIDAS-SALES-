@@ -197,17 +197,7 @@ These are hypotheses to test, not conclusions. The data has no cost, discount, o
 - **Reduce retailer concentration risk.** Three retailers provide 71.6% of revenue. Amazon's margin (39.46%, second best) suggests room to grow a small partner, but note that Amazon only appears in 2021.
 - **Standardize data collection before any trend reporting.** The 2020 to 2021 step change makes year-over-year growth claims unreliable.
 
-### Data Notes & Challenges
 
-The raw file needed real repair before any analysis. Each rule below was inferred from patterns in the data and is implemented in `scripts/clean_raw_data.py`.
-
-- **Delimiter and text formats:** the file is semicolon-separated, and prices and profits carry `$`, trailing spaces, and thousands commas.
-- **Corrupted number scales:** the file appears to have been saved in a decimal-comma locale. Units such as `1,05` mean 1,050 and a unit value of `1` means 1,000. Profit is recorded at one tenth of its true value on 5,758 rows. The correct scale was chosen as the single power of ten that puts each row's margin between 10% and 80%. After repair, every row's margin falls in that band (median 41%).
-- **`total_sales` recomputed:** the raw column is corrupted by the same issue, so it is rebuilt as `price_per_unit × units_sold`.
-- **Missing prices:** 2 rows had no price. They were back-solved from the raw total, accepting only whole prices between $7 and $110 (results: $60 and $40).
-- **Typo:** one row read `Men's aparel` and was merged into `Men's Apparel`, taking products from 7 to 6.
-- **Zero-unit rows:** 4 rows have zero units and zero revenue and profit. They are kept and excluded naturally from ratios via `SAFE_DIVIDE`.
-- **Dates:** all dates are month/day/year (the first part never exceeds 12 and the second often does), so none are ambiguous.
 - **Limitations:** the scale repair is an inference, not vendor documentation. The data covers 2020–2021 and the US only, has no cost, discount, or end-customer data, and its 2020 vs 2021 coverage differs (see Key Findings).
 
 
