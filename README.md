@@ -170,7 +170,7 @@ A single-page Looker Studio dashboard (**[live link — add yours here]**) with 
 - **Sales and margin by retailer:** revenue bars with margin as the second metric
 - **Sales and margin by product:** revenue and margin per product line
 
-![Dashboard overview](https://github.com/TECTONATZY/PROJECT-ADIDAS-SALES-/blob/main/Looker%20Studio/Looker%20Studio.png?raw=true)
+![Dashboard overview](https://github.com/TECTONATZY/PROJECT-ADIDAS-SALES-/blob/main/Looker%20Studio/dashboard.png)
 
 *Dashboard figures reconcile with the SQL results above (revenue $119,996,275, profit $47,170,013, margin 39.31%, units 2,475,611).*
 
